@@ -27,3 +27,4 @@ build-res/module-scripts/
 *.lck
 target
 
+*.iml
