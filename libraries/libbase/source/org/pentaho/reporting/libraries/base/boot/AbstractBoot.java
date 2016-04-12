@@ -372,7 +372,7 @@ public abstract class AbstractBoot implements SubSystem {
           final PropertyFileConfiguration baseProperty = configs.get( i );
           compressedUserConfig.addAll( baseProperty );
         }
-        globalConfig.insertConfiguration( compressedUserConfig );
+  //      globalConfig.insertConfiguration( compressedUserConfig );
       } catch ( IOException e ) {
         LOGGER.warn( "Failed to lookup the user configurations.", e );
       }

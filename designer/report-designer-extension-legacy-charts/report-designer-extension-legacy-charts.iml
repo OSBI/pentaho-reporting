@@ -6,6 +6,7 @@
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/test-src" isTestSource="true" />
     </content>
+    <orderEntry type="library" name="Clover IDEA Plugin" level="application" />
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="legacy-charts" exported="" />
@@ -165,4 +166,3 @@
     </LanguageOptions>
   </component>
 </module>
-

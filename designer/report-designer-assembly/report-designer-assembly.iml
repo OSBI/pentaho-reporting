@@ -13,6 +13,7 @@
       <sourceFolder url="file://$MODULE_DIR$/resource/resources" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/resource.mac" type="java-resource" />
     </content>
+    <orderEntry type="library" name="Clover IDEA Plugin" level="application" />
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="report-designer" exported="" />
@@ -208,4 +209,3 @@
     </LanguageOptions>
   </component>
 </module>
-

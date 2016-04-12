@@ -19,6 +19,7 @@
       <excludeFolder url="file://$MODULE_DIR$/bin" />
       <excludeFolder url="file://$MODULE_DIR$/dist" />
     </content>
+    <orderEntry type="library" name="Clover IDEA Plugin" level="application" />
     <orderEntry type="inheritedJdk" />
     <orderEntry type="module-library" exported="">
       <library>
@@ -61,8 +62,8 @@
         </CLASSES>
         <JAVADOC />
         <SOURCES>
-          <root url="jar://$MODULE_DIR$/../../../../archive/sources/poi-3.10-FINAL-sources.jar!/" />
-          <root url="jar://$MODULE_DIR$/../../../../archive/sources/poi-ooxml-3.10-FINAL-sources.jar!/" />
+          <root url="jar://$USER_HOME$/archive/sources/poi-3.10-FINAL-sources.jar!/" />
+          <root url="jar://$USER_HOME$/archive/sources/poi-ooxml-3.10-FINAL-sources.jar!/" />
         </SOURCES>
         <jarDirectory url="file://$MODULE_DIR$/lib/external" recursive="false" />
       </library>
@@ -222,4 +223,3 @@
     </LanguageOptions>
   </component>
 </module>
-

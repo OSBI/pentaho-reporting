@@ -318,7 +318,18 @@ public final class ObjectUtilities {
    */
   public static InputStream getResourceRelativeAsStream
   ( final String name, final Class context ) {
-    final URL url = getResourceRelative( name, context );
+    //final URL url = getResourceRelative( name, context );
+    String test = context.getPackage().getName();
+    test = test.replaceAll("\\.", "/");
+    final URL url;
+    if(name.contains("/")){
+      url = ObjectUtilities.class.getResource(name);
+
+    }
+    else{
+      url = ObjectUtilities.class.getResource("/"+test+"/"+name);
+    }
+
     if ( url == null ) {
       return null;
     }
@@ -360,7 +371,7 @@ public final class ObjectUtilities {
     }
     try {
       final ClassLoader loader = getClassLoader( source );
-      final Class c = Class.forName( className, false, loader );
+      final Class c = ObjectUtilities.forName(className); //Class.forName( className, false, loader );
       return instantiateSafe( c, type );
     } catch ( ClassNotFoundException e ) {
       if ( LOGGER.isDebugEnabled() ) {
@@ -557,5 +568,39 @@ public final class ObjectUtilities {
     }
 
     return Arrays.hashCode( array1 );
+  }
+
+  /**
+   * Load a class by first checking the thread's class loader and then the caller's class loader.
+   * @param className name of class to be loaded
+   * @return the class found
+   * @throws ClassNotFoundException when the class cannot be found
+   */
+  public static Class<?> forName(String className) throws ClassNotFoundException {
+    return forName(className, null);
+  }
+
+  /**
+   * Load a class by directly specifying a class loader.
+   * @param className name of class to be loaded
+   * @param classLoader the class loader to be used - if null the thread's class loader will be  used first
+   * @return the class found
+   * @throws ClassNotFoundException when the class cannot be found
+   */
+  public static Class<?> forName(String className, ClassLoader classLoader) throws ClassNotFoundException {
+    if (classLoader == null) try {
+      // Check the thread's class loader
+      classLoader = Thread.currentThread().getContextClassLoader();
+      if (classLoader != null) {
+        return Class.forName(className, false, classLoader);
+      }
+    } catch (ClassNotFoundException e) {
+      // not found, use the class' loader
+      classLoader = null;
+    }
+    if (classLoader != null) {
+      return Class.forName(className, false, classLoader);
+    }
+    return Class.forName(className);
   }
 }

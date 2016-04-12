@@ -7,6 +7,7 @@
       <sourceFolder url="file://$MODULE_DIR$/source" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/test-src" isTestSource="true" />
     </content>
+    <orderEntry type="library" name="Clover IDEA Plugin" level="application" />
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="core" exported="" />
@@ -178,4 +179,3 @@
     </LanguageOptions>
   </component>
 </module>
-

@@ -13,7 +13,6 @@
     <inspection_tool class="ArchaicSystemPropertyAccess" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="ArrayEquality" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="ArrayEquals" enabled="false" level="WARNING" enabled_by_default="false" />
-    <inspection_tool class="ArraysAsListWithZeroOrOneArgument" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="AssertAsName" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="AssertEqualsBetweenInconvertibleTypes" enabled="false" level="WARNING" enabled_by_default="false" />
     <inspection_tool class="AssertEqualsCalledOnArray" enabled="true" level="WARNING" enabled_by_default="true" />
@@ -54,7 +53,6 @@
     <inspection_tool class="CloneableImplementsClone" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="m_ignoreCloneableDueToInheritance" value="true" />
     </inspection_tool>
-    <inspection_tool class="CollectionAddedToSelf" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="ComparableImplementedButEqualsNotOverridden" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="ComparatorMethodParameterNotUsed" enabled="false" level="WARNING" enabled_by_default="false" />
     <inspection_tool class="ComponentNotRegistered" enabled="false" level="WARNING" enabled_by_default="false">
@@ -71,7 +69,6 @@
     </inspection_tool>
     <inspection_tool class="ConstantIfStatement" enabled="false" level="WARNING" enabled_by_default="false" />
     <inspection_tool class="ConstantIfStatementJS" enabled="false" level="WARNING" enabled_by_default="false" />
-    <inspection_tool class="ConstantStringIntern" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="ContinueOrBreakFromFinallyBlockJS" enabled="false" level="WARNING" enabled_by_default="false" />
     <inspection_tool class="ControlFlowStatementWithoutBraces" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="CovariantCompareTo" enabled="true" level="WARNING" enabled_by_default="true" />
@@ -117,6 +114,7 @@
       </option>
       <option name="ignoreClassWithParameterization" value="false" />
       <option name="ignoreThrowables" value="true" />
+      <option name="commentsAreContent" value="true" />
     </inspection_tool>
     <inspection_tool class="EmptyMethod" enabled="false" level="WARNING" enabled_by_default="false" />
     <inspection_tool class="EmptyStatementBodyJS" enabled="false" level="WARNING" enabled_by_default="false">
@@ -314,7 +312,6 @@
     </inspection_tool>
     <inspection_tool class="LoopStatementThatDoesntLoopJS" enabled="false" level="WARNING" enabled_by_default="false" />
     <inspection_tool class="LoopStatementsThatDontLoop" enabled="false" level="WARNING" enabled_by_default="false" />
-    <inspection_tool class="LossyEncoding" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="MalformedXPath" enabled="false" level="WARNING" enabled_by_default="false" />
     <inspection_tool class="ManualArrayToCollectionCopy" enabled="false" level="WARNING" enabled_by_default="false" />
     <inspection_tool class="MethodNameSameAsClassName" enabled="false" level="WARNING" enabled_by_default="false" />
@@ -424,7 +421,6 @@
     <inspection_tool class="RedundantFieldInitialization" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="RedundantImport" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="RedundantScopeBinding" enabled="false" level="WARNING" enabled_by_default="false" />
-    <inspection_tool class="RedundantStringFormatCall" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="RedundantSuppression" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="RedundantThrows" enabled="false" level="WARNING" enabled_by_default="false" />
     <inspection_tool class="RedundantToBinding" enabled="false" level="WARNING" enabled_by_default="false" />
@@ -452,7 +448,6 @@
     <inspection_tool class="SillyAssignmentJS" enabled="false" level="WARNING" enabled_by_default="false" />
     <inspection_tool class="SimplifiableConditionalExpression" enabled="false" level="WARNING" enabled_by_default="false" />
     <inspection_tool class="SimplifiableIfStatement" enabled="false" level="WARNING" enabled_by_default="false" />
-    <inspection_tool class="Since15" enabled="true" level="ERROR" enabled_by_default="true" />
     <inspection_tool class="SingletonInjectsScoped" enabled="false" level="WARNING" enabled_by_default="false" />
     <inspection_tool class="StringConcatenationInFormatCall" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="StringConcatenationInMessageFormatCall" enabled="true" level="WARNING" enabled_by_default="true" />
@@ -466,7 +461,6 @@
     <inspection_tool class="StrutsTilesInspection" level="ERROR" enabled="false" />
     <inspection_tool class="StrutsValidatorFormInspection" level="ERROR" enabled="false" />
     <inspection_tool class="StrutsValidatorInspection" level="ERROR" enabled="false" />
-    <inspection_tool class="SubstringZero" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="SuspiciousMethodCalls" enabled="false" level="WARNING" enabled_by_default="false">
       <option name="REPORT_CONVERTIBLE_METHOD_CALLS" value="true" />
     </inspection_tool>
@@ -490,7 +484,6 @@
     <inspection_tool class="ThrowableInstanceNeverThrown" enabled="false" level="WARNING" enabled_by_default="false" />
     <inspection_tool class="ThrowablePrintStackTrace" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="ThrowableResultOfMethodCallIgnored" enabled="false" level="WARNING" enabled_by_default="false" />
-    <inspection_tool class="ToArrayCallWithZeroLengthArrayArgument" enabled="false" level="WARNING" enabled_by_default="false" />
     <inspection_tool class="TooBroadScope" enabled="false" level="WARNING" enabled_by_default="false">
       <option name="m_allowConstructorAsInitializer" value="false" />
       <option name="m_onlyLookAtBlocks" value="true" />
@@ -570,10 +563,6 @@
     </inspection_tool>
     <inspection_tool class="ValidatorConfigModelInspection" level="ERROR" enabled="false" />
     <inspection_tool class="ValidatorModelInspection" level="ERROR" enabled="false" />
-    <inspection_tool class="W3CssValidation" enabled="false" level="WARNING" enabled_by_default="false">
-      <option name="myCssVersion" value="css3" />
-      <option name="myIgnoreVendorSpecificProperties" value="false" />
-    </inspection_tool>
     <inspection_tool class="WeakerAccess" enabled="false" level="WARNING" enabled_by_default="false">
       <option name="SUGGEST_PACKAGE_LOCAL_FOR_MEMBERS" value="true" />
       <option name="SUGGEST_PACKAGE_LOCAL_FOR_TOP_CLASSES" value="true" />
