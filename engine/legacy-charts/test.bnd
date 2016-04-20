@@ -1,0 +1,6 @@
+-savemanifest ${dist.manifest.file}
+Bundle-Name: legacy-charts
+Bundle-SymbolicName: legacy-charts
+Import-Package: *;resolution:=optional
+Export-Package: org.pentaho.*
+

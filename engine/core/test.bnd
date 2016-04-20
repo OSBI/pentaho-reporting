@@ -1,0 +1,7 @@
+-savemanifest ${dist.manifest.file}
+Bundle-Name: core
+Bundle-SymbolicName: core
+Import-Package: org.pentaho.reporting.libraries.resourceloader,org.pentaho.reporting.libraries.fonts,*;resolution:=optional
+Export-Package: org.pentaho.reporting.engine.classic.core.*
+Bundle-Blueprint: OSGI-INF/blueprint/blueprint.xml
+

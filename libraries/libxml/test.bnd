@@ -1,0 +1,6 @@
+-savemanifest ${dist.manifest.file}
+Bundle-Name: libxml
+Bundle-SymbolicName: libxml
+Import-Package: *;resolution:=optional
+Export-Package: org.pentaho.*
+

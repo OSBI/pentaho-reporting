@@ -1,0 +1,6 @@
+-savemanifest ${dist.manifest.file}
+Bundle-Name: libserializer
+Bundle-SymbolicName: libserializer
+Import-Package: org.pentaho.reporting.libraries.base.versioning,*;resolution:=optional
+Export-Package: org.pentaho.*
+

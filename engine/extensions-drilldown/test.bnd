@@ -1,0 +1,6 @@
+-savemanifest ${dist.manifest.file}
+Bundle-Name: extensions-drilldown
+Bundle-SymbolicName: extensions-drilldown
+Import-Package: *;resolution:=optional
+Export-Package: org.pentaho.*
+

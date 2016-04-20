@@ -1,0 +1,6 @@
+-savemanifest ${dist.manifest.file}
+Bundle-Name: libformula
+Bundle-SymbolicName: libformula
+Import-Package: *;resolution:=optional
+Export-Package: org.pentaho.*
+

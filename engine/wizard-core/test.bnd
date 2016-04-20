@@ -1,0 +1,5 @@
+-savemanifest ${dist.manifest.file}
+Bundle-Name: wizard-core
+Bundle-SymbolicName: wizard-core
+Import-Package: *;resolution:=optional
+Export-Package: org.pentaho.*

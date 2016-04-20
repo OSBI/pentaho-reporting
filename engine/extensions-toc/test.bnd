@@ -1,0 +1,6 @@
+-savemanifest ${dist.manifest.file}
+Bundle-Name: extensions-toc
+Bundle-SymbolicName: extensions-toc
+Import-Package: *;resolution:=optional
+Export-Package: org.pentaho.*
+

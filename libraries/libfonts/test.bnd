@@ -1,0 +1,6 @@
+-savemanifest ${dist.manifest.file}
+Bundle-Name: libfonts
+Bundle-SymbolicName: libfonts
+Import-Package: *;resolution:=optional
+Export-Package: org.pentaho.*
+

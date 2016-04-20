@@ -1,0 +1,6 @@
+-savemanifest ${dist.manifest.file}
+Bundle-Name: librepository
+Bundle-SymbolicName: librepository
+Import-Package: *;resolution:=optional
+Export-Package: org.pentaho.*
+

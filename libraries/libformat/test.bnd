@@ -1,0 +1,6 @@
+-savemanifest ${dist.manifest.file}
+Bundle-Name: libformat
+Bundle-SymbolicName: libformat
+Import-Package: *;resolution:=optional
+Export-Package: org.pentaho.*
+

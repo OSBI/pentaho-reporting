@@ -1,0 +1,6 @@
+-savemanifest ${dist.manifest.file}
+Bundle-Name: extensions-cda
+Bundle-SymbolicName: extensions-cda
+Import-Package: *;resolution:=optional
+Export-Package: *
+

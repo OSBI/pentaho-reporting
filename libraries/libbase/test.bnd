@@ -1,0 +1,6 @@
+-savemanifest ${dist.manifest.file}
+Bundle-Name: libbase
+Bundle-SymbolicName: libbase
+Import-Package: *;resolution:=optional
+Export-Package: org.pentaho.*
+Fragment-Host: core;bundle-version=0
