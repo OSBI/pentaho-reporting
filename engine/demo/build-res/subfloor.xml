@@ -1693,25 +1693,6 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
       <attribute name="Implementation-ProductID" value="${impl.productID}"/>
     </manifest>-->
 
-    <taskdef resource="aQute/bnd/ant/taskdef.properties" classpath="${testlib.dir}/bnd-${bnd.version}.jar"/>
-    <!--<path id="classpath.custom">
-      <fileset dir="source">
-        <include name="**/*.java"/>
-      </fileset>
-    </path>-->
-    <bnd
-            classpath="./bin/classes"
-            eclipse="false"
-            failok="false"
-            exceptions="true"
-            files="test.bnd">
-        <!--<classpath refid="classpath"/>-->
-
-    </bnd>
-
-    <copy todir="${classes.dir}/OSGI-INF" failonerror="false">
-      <fileset dir="devresource/OSGI-INF"/>
-    </copy>
   </target>
 
 
