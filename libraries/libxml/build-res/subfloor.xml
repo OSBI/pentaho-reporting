@@ -1709,7 +1709,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
     </bnd>
 
-    <copy todir="${classes.dir}/OSGI-INF" failonerror="false">
+    <copy todir="${classes.dir}/OSGI-INF" quiet="true" failonerror="false">
       <fileset dir="devresource/OSGI-INF"/>
     </copy>
   </target>
