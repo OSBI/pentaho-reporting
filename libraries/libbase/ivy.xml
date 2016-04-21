@@ -22,5 +22,7 @@
 		<dependency org="org.osgi" name="org.osgi.core" rev="4.3.0" changing="false"/>
 		<!-- testing dependencies -->
 		<dependency org="junit" name="junit" rev="4.10" transitive="false" conf="test->default"/>
+		<dependency org="biz.aQute.bnd" name="bnd" rev="${bnd.version}" conf="test->default"/>
+
 	</dependencies>
 </ivy-module>

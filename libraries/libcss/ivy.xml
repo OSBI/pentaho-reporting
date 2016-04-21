@@ -19,6 +19,7 @@
 		<!--  internal dependencies -->
 		<dependency org="${ivy.artifact.group}" name="libfonts" rev="${project.revision}" transitive="true" changing="true" />
 		<dependency org="${ivy.artifact.group}" name="flute" rev="${project.revision}" transitive="true" changing="true" />
+		<dependency org="biz.aQute.bnd" name="bnd" rev="${bnd.version}" conf="test->default"/>
 
 		<!--  testing dependencies -->
 		<dependency org="junit" name="junit" rev="3.8.1" transitive="false" changing="false" conf="test->default" />

@@ -42,5 +42,8 @@
 	    <dependency org="org.mockito" name="mockito-all" rev="1.10.9" transitive="false" conf="test->default"/>
 	    <dependency org="org.hamcrest" name="hamcrest-all" rev="1.3" conf="test->default"/>
 	    <dependency org="xerces" name="xercesImpl" rev="2.8.1" conf="test->default"/>
+
+		<dependency org="biz.aQute.bnd" name="bnd" rev="${bnd.version}" conf="test->default"/>
+
 	</dependencies>
 </ivy-module>

@@ -22,7 +22,8 @@
                 
     <dependency org="${library.group}" name="libformula-test" rev="${dependency.reporting-library.revision}" transitive="true"
                     changing="true" conf="test->default"/>
-                
-    <dependency org="junit" name="junit" rev="4.10" transitive="false" conf="test->default"/>
+		<dependency org="biz.aQute.bnd" name="bnd" rev="${bnd.version}" conf="test->default"/>
+
+		<dependency org="junit" name="junit" rev="4.10" transitive="false" conf="test->default"/>
 	</dependencies>
 </ivy-module>

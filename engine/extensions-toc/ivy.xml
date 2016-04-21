@@ -18,7 +18,8 @@
 	<dependencies defaultconf="default_internal->default">
 		<!--  internal dependencies -->
 		<dependency org="${ivy.artifact.group}" name="pentaho-reporting-engine-classic-core" rev="${project.revision}" transitive="true" changing="true" />
-		
+		<dependency org="biz.aQute.bnd" name="bnd" rev="${bnd.version}" conf="test->default"/>
+
 		<!--  external dependencies -->
 	    <dependency org="junit" name="junit" rev="4.10" transitive="false" conf="test->default"/>
 	</dependencies>

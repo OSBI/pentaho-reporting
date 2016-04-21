@@ -1683,7 +1683,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
       ====================================================================-->
   <target name="generate.manifest" depends="init,set-build.id">
     <delete file="${dist.manifest.file}"/>
-    <touch file="${dist.manifest.file}"/>
+   <!-- <touch file="${dist.manifest.file}"/>
     <copy file="${manifest.file}" tofile="${dist.manifest.file}" overwrite="true" failonerror="false"/>
 
     <manifest file="${dist.manifest.file}" mode="update">
@@ -1691,7 +1691,27 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
       <attribute name="Implementation-Version" value="${project.revision}.${build.id}"/>
       <attribute name="Implementation-Vendor" value="${impl.vendor}"/>
       <attribute name="Implementation-ProductID" value="${impl.productID}"/>
-    </manifest>
+    </manifest>-->
+
+    <taskdef resource="aQute/bnd/ant/taskdef.properties" classpath="${testlib.dir}/bnd-${bnd.version}.jar"/>
+    <!--<path id="classpath.custom">
+      <fileset dir="source">
+        <include name="**/*.java"/>
+      </fileset>
+    </path>-->
+    <bnd
+            classpath="./bin/classes"
+            eclipse="false"
+            failok="false"
+            exceptions="true"
+            files="test.bnd">
+        <!--<classpath refid="classpath"/>-->
+
+    </bnd>
+
+    <copy todir="${classes.dir}/OSGI-INF" failonerror="false">
+      <fileset dir="devresource/OSGI-INF"/>
+    </copy>
   </target>
 
 

@@ -81,6 +81,7 @@
         <dependency org="javax" name="jdbc-stdext" rev="2.0" transitive="false"/>
         <dependency org="javax" name="jndi" rev="1.0" transitive="false"/>
       -->
+        <dependency org="biz.aQute.bnd" name="bnd" rev="${bnd.version}" conf="test->default"/>
 
       <!-- Testing Dependencies -->
       <dependency org="junit" name="junit" rev="4.11" transitive="false" conf="test->default"/>
