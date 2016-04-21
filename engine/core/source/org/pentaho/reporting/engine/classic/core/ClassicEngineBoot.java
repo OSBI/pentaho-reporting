@@ -23,7 +23,6 @@ import org.pentaho.reporting.engine.classic.core.style.StyleKey;
 import org.pentaho.reporting.libraries.base.boot.AbstractBoot;
 import org.pentaho.reporting.libraries.base.boot.DefaultModuleInfo;
 import org.pentaho.reporting.libraries.base.boot.PackageManager;
-import org.pentaho.reporting.libraries.base.boot.PackageManagerIface;
 import org.pentaho.reporting.libraries.base.config.Configuration;
 import org.pentaho.reporting.libraries.base.config.HierarchicalConfiguration;
 import org.pentaho.reporting.libraries.base.config.ModifiableConfiguration;
@@ -275,7 +274,7 @@ public class ClassicEngineBoot extends AbstractBoot {
       ClassicEngineBoot.logger.warn( "'-Xstrictfp' to restore the default behaviour." ); // NON-NLS
     }
 
-    final PackageManagerIface mgr = getPackageManager();
+    final PackageManager mgr = getPackageManager();
 
     mgr.addModule( ClassicEngineCoreModule.class.getName() );
     mgr.load( "org.pentaho.reporting.engine.classic.core.modules." ); // NON-NLS
