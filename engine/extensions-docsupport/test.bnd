@@ -1,0 +1,6 @@
+-savemanifest ${dist.manifest.file}
+Bundle-Name: extensions-docsupport
+Bundle-SymbolicName: extensions-docsupport
+Import-Package: org.pentaho.reporting.libraries.base.boot,*;resolution:=optional
+Export-Package: *
+Fragment-Host: core;bundle-version=0
