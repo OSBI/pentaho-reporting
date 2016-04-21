@@ -1,6 +1,6 @@
 -savemanifest ${dist.manifest.file}
-Bundle-Name: libxml
-Bundle-SymbolicName: libxml
+Bundle-Name: libcss
+Bundle-SymbolicName: libcss
 Import-Package: *;resolution:=optional
 Export-Package: org.pentaho.*
 Fragment-Host: core;bundle-version=0

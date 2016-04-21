@@ -3,4 +3,4 @@ Bundle-Name: extensions-drilldown
 Bundle-SymbolicName: extensions-drilldown
 Import-Package: *;resolution:=optional
 Export-Package: org.pentaho.*
-
+Fragment-Host: core;bundle-version=0

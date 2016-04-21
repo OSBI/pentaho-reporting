@@ -3,3 +3,4 @@ Bundle-Name: wizard-core
 Bundle-SymbolicName: wizard-core
 Import-Package: *;resolution:=optional
 Export-Package: org.pentaho.*
+Fragment-Host: core;bundle-version=0

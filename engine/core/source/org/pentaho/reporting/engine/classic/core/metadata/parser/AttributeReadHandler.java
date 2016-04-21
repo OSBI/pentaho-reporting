@@ -115,7 +115,8 @@ public class AttributeReadHandler extends AbstractMetaDataReadHandler {
     }
     try {
       final ClassLoader classLoader = ObjectUtilities.getClassLoader( getClass() );
-      return Class.forName( valueTypeText, false, classLoader );
+      //return Class.forName( valueTypeText, false, classLoader );
+      return ObjectUtilities.loadAndValidate(valueTypeText, getClass(), null);
     } catch ( final Exception e ) {
       throw new ParseException( "Attribute 'value-type' is not valid", e, getLocator() );
     }

@@ -32,6 +32,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.StringTokenizer;
 
+import org.osgi.framework.Bundle;
+import org.osgi.framework.FrameworkUtil;
+
 /**
  * A collection of useful static utility methods for handling classes and object instantiation.
  *
@@ -236,7 +239,17 @@ public final class ObjectUtilities {
     if ( cl == null ) {
       return null;
     }
-    return cl.getResource( name );
+
+
+    URL res = cl.getResource(name);
+
+    if(res != null)
+      return res;
+
+    Bundle b = FrameworkUtil.getBundle(c);
+
+    return b.getResource("/"+name);
+
   }
 
   /**
@@ -321,13 +334,22 @@ public final class ObjectUtilities {
     //final URL url = getResourceRelative( name, context );
     String test = context.getPackage().getName();
     test = test.replaceAll("\\.", "/");
-    final URL url;
+    URL url;
     if(name.contains("/")){
       url = ObjectUtilities.class.getResource(name);
 
     }
     else{
       url = ObjectUtilities.class.getResource("/"+test+"/"+name);
+    }
+
+    if(url == null){
+      if(name.contains("/")) {
+        url = context.getResource(name);
+      }
+      else{
+        url = context.getResource("/"+test+"/"+name);
+      }
     }
 
     if ( url == null ) {
@@ -370,18 +392,29 @@ public final class ObjectUtilities {
       return null;
     }
     try {
-      final ClassLoader loader = getClassLoader( source );
-      final Class c = ObjectUtilities.forName(className); //Class.forName( className, false, loader );
-      return instantiateSafe( c, type );
-    } catch ( ClassNotFoundException e ) {
-      if ( LOGGER.isDebugEnabled() ) {
-        LOGGER.debug( "Specified class " + className + " does not exist.", e );
-      }
-      // sometimes, this one is expected.
+      //final Class c = getClassLoader2( className, source );
+      Class out = ObjectUtilities.forName(className);
+      return instantiateSafe( out, type );
     } catch ( NoClassDefFoundError e ) {
       if ( LOGGER.isDebugEnabled() ) {
         LOGGER.debug( noClassDefFoundErrorMessage( className ), e );
       }
+    } catch (ClassNotFoundException e) {
+      e.printStackTrace();
+    }
+    return null;
+  }
+
+  public static Class getClassLoader2(String className, Class source){
+    ClassLoader tccl = Thread.currentThread().getContextClassLoader();
+    Thread.currentThread().setContextClassLoader(source.getClass().getClassLoader());
+    try {
+      final Class c = Class.forName( className, false, tccl ); //ObjectUtilities.forName(className); //Class
+      return c;
+    } catch (ClassNotFoundException e) {
+      e.printStackTrace();
+    } finally {
+      Thread.currentThread().setContextClassLoader(tccl);
     }
     return null;
   }
@@ -432,9 +465,18 @@ public final class ObjectUtilities {
       //noinspection unchecked
       return (Class<? extends T>) c;
     } catch ( ClassNotFoundException e ) {
-      if ( LOGGER.isDebugEnabled() ) {
-        LOGGER.debug( "Specified class " + className + " does not exist.", e );
+      Bundle b = FrameworkUtil.getBundle(source);
+      try {
+        Class<?> c = b.loadClass(className);
+
+        return (Class<? extends T>) c;
+      } catch (ClassNotFoundException e1) {
+        e1.printStackTrace();
+        if ( LOGGER.isDebugEnabled() ) {
+          LOGGER.debug( "Specified class " + className + " does not exist.", e );
+        }
       }
+
       // sometimes, this one is expected.
     } catch ( NoClassDefFoundError e ) {
       if ( LOGGER.isDebugEnabled() ) {

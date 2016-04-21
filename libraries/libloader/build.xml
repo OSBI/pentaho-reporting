@@ -30,5 +30,14 @@
 
 	<!-- Import the build-res/subfloor.xml file which contains all the default tasks -->
 	<import file="${common.build.file}"/>
-
+	<target name="build2">
+		<taskdef resource="aQute/bnd/ant/taskdef.properties"
+				 classpath="/tmp/bnd.jar"/>
+		<bnd
+				classpath="source"
+				eclipse="false"
+				failok="false"
+				exceptions="true"
+				files="test.bnd"/>
+	</target>
 </project>

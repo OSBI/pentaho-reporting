@@ -3,4 +3,4 @@ Bundle-Name: libformat
 Bundle-SymbolicName: libformat
 Import-Package: *;resolution:=optional
 Export-Package: org.pentaho.*
-
+Fragment-Host: core;bundle-version=0

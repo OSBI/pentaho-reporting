@@ -188,7 +188,7 @@ public abstract class AbstractXmlResourceFactory implements ResourceFactory {
 
       configureReader( reader, handler );
       reader.setContentHandler( handler );
-      reader.setDTDHandler( handler );
+      //reader.setDTDHandler( handler );
       reader.setEntityResolver( handler.getEntityResolver() );
       reader.setErrorHandler( getErrorHandler() );
 

@@ -43,32 +43,29 @@ public class DefaultObjectFactory implements ObjectFactory {
       throw new ObjectFactoryException( interfaceClass.getName(), value );
     }
 
-    try {
-      final ClassLoader classLoader = ObjectUtilities.getClassLoader( interfaceClass );
-      final Class clazz = (Class) Class.forName( value, false, classLoader );
-      final Annotation annotation = clazz.getAnnotation( SingletonHint.class );
-      if ( annotation == null ) {
-        final T retval = ObjectUtilities.instantiateSafe( clazz, interfaceClass );
-        if ( retval == null ) {
-          throw new ObjectFactoryException( interfaceClass.getName(), value );
-        }
-        return retval;
-      }
-
-      final Object o = singletons.get( value );
-      if ( o != null ) {
-        return (T) o;
-      }
-
+    final ClassLoader classLoader = ObjectUtilities.getClassLoader( interfaceClass );
+    //final Class clazz = (Class) Class.forName( value, false, classLoader );
+    final Class clazz = (Class) ObjectUtilities.loadAndValidate(value, getClass(), null);
+    final Annotation annotation = clazz.getAnnotation( SingletonHint.class );
+    if ( annotation == null ) {
       final T retval = ObjectUtilities.instantiateSafe( clazz, interfaceClass );
       if ( retval == null ) {
         throw new ObjectFactoryException( interfaceClass.getName(), value );
       }
-      singletons.put( value, retval );
       return retval;
-    } catch ( ClassNotFoundException e ) {
-      throw new IllegalStateException( e );
     }
+
+    final Object o = singletons.get( value );
+    if ( o != null ) {
+      return (T) o;
+    }
+
+    final T retval = ObjectUtilities.instantiateSafe( clazz, interfaceClass );
+    if ( retval == null ) {
+      throw new ObjectFactoryException( interfaceClass.getName(), value );
+    }
+    singletons.put( value, retval );
+    return retval;
 
   }
 }

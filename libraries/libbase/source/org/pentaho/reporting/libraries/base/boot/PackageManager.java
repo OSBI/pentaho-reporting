@@ -46,7 +46,7 @@ import java.util.List;
  *
  * @author Thomas Morgner
  */
-public final class PackageManager {
+public final class PackageManager implements PackageManagerIface {
   /**
    * The PackageConfiguration handles the module level configuration.
    *
@@ -167,7 +167,8 @@ public final class PackageManager {
    * @param moduleDescription the module description of the desired module.
    * @return true, if the module is available and the version of the module is compatible, false otherwise.
    */
-  public boolean isModuleAvailable( final ModuleInfo moduleDescription ) {
+  @Override
+  public boolean isModuleAvailable(final ModuleInfo moduleDescription) {
     if ( moduleDescription == null ) {
       throw new NullPointerException();
     }
@@ -190,7 +191,8 @@ public final class PackageManager {
    * @param moduleClass the module class to be checked.
    * @return true, if the module is available and initialized, false otherwise.
    */
-  public boolean isModuleAvailable( final String moduleClass ) {
+  @Override
+  public boolean isModuleAvailable(final String moduleClass) {
     if ( moduleClass == null ) {
       throw new NullPointerException();
     }
@@ -208,7 +210,8 @@ public final class PackageManager {
    *
    * @param modulePrefix the module prefix.
    */
-  public void load( final String modulePrefix ) {
+  @Override
+  public void load(final String modulePrefix) {
     if ( modulePrefix == null ) {
       throw new NullPointerException();
     }
@@ -238,6 +241,7 @@ public final class PackageManager {
    * Initializes all previously uninitialized modules. Once a module is initialized, it is not re-initialized a second
    * time.
    */
+  @Override
   public synchronized void initializeModules() {
     final List<BootTimeEntry> times = new ArrayList<BootTimeEntry>();
     // sort by subsystems and dependency
@@ -351,7 +355,8 @@ public final class PackageManager {
    *
    * @param modClass the module class
    */
-  public synchronized void addModule( final String modClass ) {
+  @Override
+  public synchronized void addModule(final String modClass) {
     if ( modClass == null ) {
       throw new NullPointerException();
     }
@@ -591,6 +596,7 @@ public final class PackageManager {
    *
    * @return the package configuration.
    */
+  @Override
   public PackageConfiguration getPackageConfiguration() {
     return this.packageConfiguration;
   }
@@ -601,6 +607,7 @@ public final class PackageManager {
    *
    * @return the modules.
    */
+  @Override
   public Module[] getAllModules() {
     final Module[] mods = new Module[ this.modules.size() ];
     for ( int i = 0; i < this.modules.size(); i++ ) {
@@ -616,6 +623,7 @@ public final class PackageManager {
    *
    * @return the list of all active modules.
    */
+  @Override
   public Module[] getActiveModules() {
     final ArrayList<Module> mods = new ArrayList<Module>();
     for ( int i = 0; i < this.modules.size(); i++ ) {
@@ -632,7 +640,8 @@ public final class PackageManager {
    *
    * @param p the print stream.
    */
-  public void printUsedModules( final PrintStream p ) {
+  @Override
+  public void printUsedModules(final PrintStream p) {
     final Module[] allMods = getAllModules();
     final ArrayList<Module> activeModules = new ArrayList<Module>();
     //final ArrayList failedModules = new ArrayList();

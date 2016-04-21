@@ -217,25 +217,25 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   <property name="headless.unittest" value="true" description="Runs the unit tests in headless mode"/>
 
   <!-- Integration Test properties -->
-    <property name="inttestsrc.dir" value="${basedir}/test-src" description="Directory that hosts the test source files"/>
-    <property name="inttestlib.dir"
-              value="${basedir}/test-lib"
-              description="Directory for jar files needed during unit testing"/>
-    <property name="inttestbin.dir"
-              value="${bin.dir}/test"
-              description="Base directory for all compiler generated test output"/>
-    <property name="inttestclasses.dir"
-              value="${inttestbin.dir}/classes"
-              description="Classes compiled from project test code are placed here"/>
-    <property name="inttestreports.dir"
-              value="${testreports.dir}"
-              description="Base directory that holds all integration test report files"/>
-    <property name="inttestreports.xml.dir"
-              value="${inttestreports.dir}/xml"
-              description="Integration test xml reports are placed here"/>
-    <property name="inttestreports.html.dir"
-              value="${inttestreports.dir}/html"
-              description="Integration test html reports are placed here"/>
+  <property name="inttestsrc.dir" value="${basedir}/test-src" description="Directory that hosts the test source files"/>
+  <property name="inttestlib.dir"
+            value="${basedir}/test-lib"
+            description="Directory for jar files needed during unit testing"/>
+  <property name="inttestbin.dir"
+            value="${bin.dir}/test"
+            description="Base directory for all compiler generated test output"/>
+  <property name="inttestclasses.dir"
+            value="${inttestbin.dir}/classes"
+            description="Classes compiled from project test code are placed here"/>
+  <property name="inttestreports.dir"
+            value="${testreports.dir}"
+            description="Base directory that holds all integration test report files"/>
+  <property name="inttestreports.xml.dir"
+            value="${inttestreports.dir}/xml"
+            description="Integration test xml reports are placed here"/>
+  <property name="inttestreports.html.dir"
+            value="${inttestreports.dir}/html"
+            description="Integration test html reports are placed here"/>
 
   <!-- Code Coverage properties -->
   <property name="instrumented.classes.dir"
@@ -366,7 +366,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
             value="6.12"
             description="The version of CheckStyle to use for coding standards"/>
   <property name="pentaho.coding.standards.version"
-			value="1.0.4"/>
+            value="1.0.4"/>
   <property name="checkstyle.dir"
             value="${basedir}/checkstyle"/>
   <property name="checkstyle.lib.dir"
@@ -472,21 +472,21 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
     </fileset>
   </path>
 
-    <!-- Setup the classpath used for testing -->
-    <path id="inttest.classpath">
-        <pathelement path="${inttestclasses.dir}"/>
-        <pathelement path="${classes.dir}"/>
-        <path refid="test.classpath.custom"/>
-        <fileset dir="${devlib.dir}">
-            <include name="**/*.jar"/>
-        </fileset>
-        <fileset dir="${inttestlib.dir}">
-            <include name="**/*.jar"/>
-        </fileset>
-        <fileset dir="${lib.dir}">
-            <include name="**/*.jar"/>
-        </fileset>
-    </path>
+  <!-- Setup the classpath used for testing -->
+  <path id="inttest.classpath">
+    <pathelement path="${inttestclasses.dir}"/>
+    <pathelement path="${classes.dir}"/>
+    <path refid="test.classpath.custom"/>
+    <fileset dir="${devlib.dir}">
+      <include name="**/*.jar"/>
+    </fileset>
+    <fileset dir="${inttestlib.dir}">
+      <include name="**/*.jar"/>
+    </fileset>
+    <fileset dir="${lib.dir}">
+      <include name="**/*.jar"/>
+    </fileset>
+  </path>
 
   <!-- This is an empty placeholder that sub-projects can override -->
   <path id="test.classpath.custom">
@@ -600,28 +600,28 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
           <!-- In the test-lib dir? -->
           <available file="${testlib.dir}"/>
           <or>
-          <!-- junit 4x -->
-          <available classname="org.junit.Test">
-            <classpath>
-              <fileset dir="${testlib.dir}">
-                <include name="**/junit*.jar"/>
-              </fileset>
-              <fileset dir="${lib.dir}">
-                <include name="**/junit*.jar"/>
-              </fileset>
-            </classpath>
-          </available>
-          <!-- junit 3x -->
-          <available classname="junit.framework.Test">
-            <classpath>
-              <fileset dir="${testlib.dir}">
-                <include name="**/junit*.jar"/>
-              </fileset>
-              <fileset dir="${lib.dir}">
-                <include name="**/junit*.jar"/>
-              </fileset>
-            </classpath>
-          </available>
+            <!-- junit 4x -->
+            <available classname="org.junit.Test">
+              <classpath>
+                <fileset dir="${testlib.dir}">
+                  <include name="**/junit*.jar"/>
+                </fileset>
+                <fileset dir="${lib.dir}">
+                  <include name="**/junit*.jar"/>
+                </fileset>
+              </classpath>
+            </available>
+            <!-- junit 3x -->
+            <available classname="junit.framework.Test">
+              <classpath>
+                <fileset dir="${testlib.dir}">
+                  <include name="**/junit*.jar"/>
+                </fileset>
+                <fileset dir="${lib.dir}">
+                  <include name="**/junit*.jar"/>
+                </fileset>
+              </classpath>
+            </available>
           </or>
         </and>
       </or>
@@ -851,9 +851,9 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
     <ivy:resolve keep="true"
                  conf="default"
                  transitive="true">
-    	<dependency org="com.puppycrawl.tools" name="checkstyle" rev="${checkstyle.version}">
-    		<artifact name="checkstyle" type="all" e:classifier="all" ext="jar"/>
-    	</dependency>
+      <dependency org="com.puppycrawl.tools" name="checkstyle" rev="${checkstyle.version}">
+        <artifact name="checkstyle" type="all" e:classifier="all" ext="jar"/>
+      </dependency>
     </ivy:resolve>
 
     <ivy:retrieve conf="default" pattern="${checkstyle.lib.dir}/[module]-[revision](-[classifier]).[ext]"/>
@@ -1036,7 +1036,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
   <condition property="isMacOsButNotMacOsX">
     <and>
-    <equals arg1="${source.publish}" arg2="true"/>
+      <equals arg1="${source.publish}" arg2="true"/>
     </and>
   </condition>
 
@@ -1054,22 +1054,22 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
       <then>
         <if>
           <!-- Avoid fail when looking to install proguard sources jar that does not exist -->
-        <available file="${dist.dir}/${ivy.artifact.id}-${project.revision}-sources.jar"/>
-        <then>
-          <antcall target="maven-install-sources">
-            <param name="publish.groupId" value="${ivy.artifact.group}"/>
-            <param name="publish.artifactId" value="${ivy.artifact.id}"/>
-            <param name="publish.version" value="${project.revision}"/>
-            <param name="publish.file" value="${dist.dir}/${ivy.artifact.id}-${project.revision}-sources.jar"/>
-          </antcall>
-        </then>
+          <available file="${dist.dir}/${ivy.artifact.id}-${project.revision}-sources.jar"/>
+          <then>
+            <antcall target="maven-install-sources">
+              <param name="publish.groupId" value="${ivy.artifact.group}"/>
+              <param name="publish.artifactId" value="${ivy.artifact.id}"/>
+              <param name="publish.version" value="${project.revision}"/>
+              <param name="publish.file" value="${dist.dir}/${ivy.artifact.id}-${project.revision}-sources.jar"/>
+            </antcall>
+          </then>
         </if>
       </then>
     </if>
 
     <if>
-     <!-- Avoid fail when looking to install proguard jar that does not exist -->
-     <available file="${dist.dir}/${ivy.artifact.id}-${project.revision}.jar"/>
+      <!-- Avoid fail when looking to install proguard jar that does not exist -->
+      <available file="${dist.dir}/${ivy.artifact.id}-${project.revision}.jar"/>
       <then>
         <antcall target="maven-install-artifact">
           <param name="publish.pomFile" value="${ivy.artifact.pomfile}"/>
@@ -1683,15 +1683,32 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
       ====================================================================-->
   <target name="generate.manifest" depends="init,set-build.id">
     <delete file="${dist.manifest.file}"/>
-    <touch file="${dist.manifest.file}"/>
-    <copy file="${manifest.file}" tofile="${dist.manifest.file}" overwrite="true" failonerror="false"/>
+    <!-- <touch file="${dist.manifest.file}"/>
+     <copy file="${manifest.file}" tofile="${dist.manifest.file}" overwrite="true" failonerror="false"/>
 
-    <manifest file="${dist.manifest.file}" mode="update">
-      <attribute name="Implementation-Title" value="${impl.title}"/>
-      <attribute name="Implementation-Version" value="${project.revision}.${build.id}"/>
-      <attribute name="Implementation-Vendor" value="${impl.vendor}"/>
-      <attribute name="Implementation-ProductID" value="${impl.productID}"/>
-    </manifest>
+     <manifest file="${dist.manifest.file}" mode="update">
+       <attribute name="Implementation-Title" value="${impl.title}"/>
+       <attribute name="Implementation-Version" value="${project.revision}.${build.id}"/>
+       <attribute name="Implementation-Vendor" value="${impl.vendor}"/>
+       <attribute name="Implementation-ProductID" value="${impl.productID}"/>
+     </manifest>-->
+
+    <taskdef resource="aQute/bnd/ant/taskdef.properties"
+             classpath="/tmp/bnd.jar"/>
+    <!--<path id="classpath.custom">
+      <fileset dir="source">
+        <include name="**/*.java"/>
+      </fileset>
+    </path>-->
+    <bnd
+            classpath="./bin/classes"
+            eclipse="false"
+            failok="false"
+            exceptions="true"
+            files="test.bnd">
+      <!--<classpath refid="classpath"/>-->
+
+    </bnd>
   </target>
 
 
@@ -1863,62 +1880,62 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
         Compiles and runs all the integration tests for the project
         ====================================================================-->
-    <target name="integration-test" depends="compile,compile-tests, init-test-reports" description="Compiles and runs unit tests">
-        <junit maxmemory="${junit.maxmemory}"
-               dir="${junit.base.dir}"
-               fork="yes"
-               forkmode="${junit.forkmode}"
-               failureProperty="test.failed"
-               haltonfailure="${junit.haltonfailure}"
-               haltonerror="${junit.haltonerror}"
-               printsummary="yes">
-            <sysproperty key="java.awt.headless" value="${headless.unittest}"/>
+  <target name="integration-test" depends="compile,compile-tests, init-test-reports" description="Compiles and runs unit tests">
+    <junit maxmemory="${junit.maxmemory}"
+           dir="${junit.base.dir}"
+           fork="yes"
+           forkmode="${junit.forkmode}"
+           failureProperty="test.failed"
+           haltonfailure="${junit.haltonfailure}"
+           haltonerror="${junit.haltonerror}"
+           printsummary="yes">
+      <sysproperty key="java.awt.headless" value="${headless.unittest}"/>
 
-            <jvmarg line="${junit.jvmargs}"/>
+      <jvmarg line="${junit.jvmargs}"/>
 
-            <syspropertyset>
-                <propertyref prefix="junit.sysprop."/>
-                <mapper type="glob" from="junit.sysprop.*" to="*"/>
-            </syspropertyset>
+      <syspropertyset>
+        <propertyref prefix="junit.sysprop."/>
+        <mapper type="glob" from="junit.sysprop.*" to="*"/>
+      </syspropertyset>
 
-            <classpath refid="test.classpath"/>
-            <formatter type="xml"/>
-            <test name="${testcase}" todir="${inttestreports.xml.dir}" if="testcase"/>
-            <batchtest fork="yes" todir="${inttestreports.xml.dir}" unless="testcase">
-                <fileset dir="${inttestsrc.dir}" casesensitive="yes">
-                    <include name="${junit.integration.test.pattern}"/>
-                </fileset>
-            </batchtest>
-        </junit>
+      <classpath refid="test.classpath"/>
+      <formatter type="xml"/>
+      <test name="${testcase}" todir="${inttestreports.xml.dir}" if="testcase"/>
+      <batchtest fork="yes" todir="${inttestreports.xml.dir}" unless="testcase">
+        <fileset dir="${inttestsrc.dir}" casesensitive="yes">
+          <include name="${junit.integration.test.pattern}"/>
+        </fileset>
+      </batchtest>
+    </junit>
 
-        <junitreport todir="${inttestreports.html.dir}">
-            <fileset dir="${inttestreports.xml.dir}">
-                <include name="TEST-*.xml"/>
-            </fileset>
-            <report format="frames" todir="${inttestreports.html.dir}"/>
-        </junitreport>
-    </target>
+    <junitreport todir="${inttestreports.html.dir}">
+      <fileset dir="${inttestreports.xml.dir}">
+        <include name="TEST-*.xml"/>
+      </fileset>
+      <report format="frames" todir="${inttestreports.html.dir}"/>
+    </junitreport>
+  </target>
 
-    <!--=======================================================================
-      clean-integration-test-reports
+  <!--=======================================================================
+    clean-integration-test-reports
 
-      Remove all xml and html JUnit test reports
-      ====================================================================-->
-    <target name="clean-integration-test-reports">
-        <delete dir="${inttestreports.xml.dir}"/>
-        <delete dir="${inttestreports.html.dir}"/>
-    </target>
+    Remove all xml and html JUnit test reports
+    ====================================================================-->
+  <target name="clean-integration-test-reports">
+    <delete dir="${inttestreports.xml.dir}"/>
+    <delete dir="${inttestreports.html.dir}"/>
+  </target>
 
 
-    <!--=======================================================================
-      init-test-reports
+  <!--=======================================================================
+    init-test-reports
 
-      Prepare directories for JUnit test reports
-      ====================================================================-->
-    <target name="init-integration-test-reports" depends="clean-integration-test-reports">
-        <mkdir dir="${inttestreports.xml.dir}"/>
-        <mkdir dir="${inttestreports.html.dir}"/>
-    </target>
+    Prepare directories for JUnit test reports
+    ====================================================================-->
+  <target name="init-integration-test-reports" depends="clean-integration-test-reports">
+    <mkdir dir="${inttestreports.xml.dir}"/>
+    <mkdir dir="${inttestreports.html.dir}"/>
+  </target>
 
   <!--=======================================================================
       dist
@@ -2119,41 +2136,41 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
     </taskdef>
 
     <if>
-    <equals arg1="${junit.available}" arg2="true"/>
-    <then>
-    <!-- Run unit tests, adding the JaCoCo agent -->
-    <jacoco:coverage destfile="${jacoco.execfile.path}" xmlns:jacoco="antlib:org.jacoco.ant" >
+      <equals arg1="${junit.available}" arg2="true"/>
+      <then>
+        <!-- Run unit tests, adding the JaCoCo agent -->
+        <jacoco:coverage destfile="${jacoco.execfile.path}" xmlns:jacoco="antlib:org.jacoco.ant" >
 
-      <junit maxmemory="${junit.maxmemory}"
-             dir="${junit.base.dir}"
-             fork="yes"
-             forkmode="${junit.forkmode}"
-             failureProperty="test.failed"
-             haltonfailure="${junit.haltonfailure}"
-             haltonerror="${junit.haltonerror}"
-             printsummary="yes">
-        <sysproperty key="java.awt.headless" value="${headless.unittest}"/>
+          <junit maxmemory="${junit.maxmemory}"
+                 dir="${junit.base.dir}"
+                 fork="yes"
+                 forkmode="${junit.forkmode}"
+                 failureProperty="test.failed"
+                 haltonfailure="${junit.haltonfailure}"
+                 haltonerror="${junit.haltonerror}"
+                 printsummary="yes">
+            <sysproperty key="java.awt.headless" value="${headless.unittest}"/>
 
-        <jvmarg line="${junit.jvmargs}"/>
+            <jvmarg line="${junit.jvmargs}"/>
 
-        <syspropertyset>
-          <propertyref prefix="junit.sysprop."/>
-          <mapper type="glob" from="junit.sysprop.*" to="*"/>
-        </syspropertyset>
+            <syspropertyset>
+              <propertyref prefix="junit.sysprop."/>
+              <mapper type="glob" from="junit.sysprop.*" to="*"/>
+            </syspropertyset>
 
-        <classpath refid="test.classpath"/>
-        <classpath refid="jacoco.classpath"/>
+            <classpath refid="test.classpath"/>
+            <classpath refid="jacoco.classpath"/>
 
-        <formatter type="xml"/>
-        <test name="${testcase}" todir="${testreports.xml.dir}" if="testcase"/>
-        <batchtest fork="yes" todir="${testreports.xml.dir}" unless="testcase">
-          <fileset dir="${testsrc.dir}" casesensitive="yes">
-            <include name="${junit.test.pattern}"/>
-          </fileset>
-        </batchtest>
-      </junit>
-    </jacoco:coverage>
-    </then>
+            <formatter type="xml"/>
+            <test name="${testcase}" todir="${testreports.xml.dir}" if="testcase"/>
+            <batchtest fork="yes" todir="${testreports.xml.dir}" unless="testcase">
+              <fileset dir="${testsrc.dir}" casesensitive="yes">
+                <include name="${junit.test.pattern}"/>
+              </fileset>
+            </batchtest>
+          </junit>
+        </jacoco:coverage>
+      </then>
     </if>
 
     <if>
