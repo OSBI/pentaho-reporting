@@ -17,10 +17,14 @@
 
 package org.pentaho.reporting.engine.classic.core;
 
+import org.pentaho.reporting.engine.classic.core.modules.output.table.html.HtmlReportUtil;
 import org.pentaho.reporting.libraries.resourceloader.ResourceException;
 import org.pentaho.reporting.libraries.resourceloader.ResourceManager;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.IOException;
+import java.io.PrintStream;
 import java.net.MalformedURLException;
 import java.net.URL;
 
@@ -40,7 +44,21 @@ public class Bootstrap {
     }
     try {
       final MasterReport report = (MasterReport) mgr.createDirectly(url, MasterReport.class).getResource();
+
+      ByteArrayOutputStream bos = new ByteArrayOutputStream();
+      PrintStream ps = new PrintStream(bos, true);
+
+      HtmlReportUtil.createStreamHTML(report, ps);
+
+      ps.flush();
+      bos.flush();
+
+      System.out.println(bos.toString());
     } catch (ResourceException e) {
+      e.printStackTrace();
+    } catch (ReportProcessingException e) {
+      e.printStackTrace();
+    } catch (IOException e) {
       e.printStackTrace();
     }
   }

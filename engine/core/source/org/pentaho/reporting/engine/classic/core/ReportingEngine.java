@@ -17,8 +17,15 @@
 
 package org.pentaho.reporting.engine.classic.core;
 
+import org.pentaho.reporting.engine.classic.core.modules.output.table.html.HtmlReportUtil;
 import org.pentaho.reporting.libraries.resourceloader.ResourceException;
 import org.pentaho.reporting.libraries.resourceloader.ResourceManager;
+
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.PrintStream;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 /**
  * Created by bugg on 20/04/16.
@@ -34,16 +41,33 @@ public class ReportingEngine implements ReportingInterface {
   }
 
   @Override
-  public MasterReport createReport(byte[] reportBytes) {
+  public String createReport(String reportBytes) {
     final ResourceManager mgr = new ResourceManager();
+
+    URL url = null;
+    try {
+      url = new File("/tmp/basic_sample.prpt").toURI().toURL();
+    } catch (MalformedURLException e) {
+      e.printStackTrace();
+    }
+
 
     MasterReport report = null;
     try {
-      report = (MasterReport) mgr.createDirectly(reportBytes, MasterReport.class).getResource();
+      report = (MasterReport) mgr.createDirectly(url, MasterReport.class).getResource();
     } catch (ResourceException e) {
       e.printStackTrace();
     }
 
-    return  report;
+
+    ByteArrayOutputStream bos = new ByteArrayOutputStream();
+    PrintStream ps = new PrintStream(bos, true);
+
+    try {
+      HtmlReportUtil.createStreamHTML(report, ps);
+    } catch (ReportProcessingException e) {
+      e.printStackTrace();
+    }
+    return  bos.toString();
   }
 }

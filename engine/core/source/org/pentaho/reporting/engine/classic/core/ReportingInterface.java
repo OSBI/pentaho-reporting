@@ -22,5 +22,5 @@ package org.pentaho.reporting.engine.classic.core;
  */
 public interface ReportingInterface {
 
-  MasterReport createReport(byte[] reportBytes);
+  String createReport(String url);
 }
